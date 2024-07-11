@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Formulário de Pessoa!!!' /}
+
+<p>Preencha os dados da pessoa</p>
+
+<form action="/pessoas/salvar">
+
+	<label>Nome:</label><br />
+	<input type="text" name="pessoa.nome" /><br />
+	
+	<label>Email:</label><br />
+	<input type="text" name="pessoa.email" /><br />
+	
+	<input type="submit" />
+
+</form>
