@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.List;
+
 import models.Pessoa;
 import play.mvc.Controller;
 
@@ -17,7 +19,20 @@ public class Pessoas extends Controller {
 		pessoa.nome = pessoa.nome.toUpperCase();
 		pessoa.email = pessoa.email.toLowerCase();
 		pessoa.save();
-		detalhar(pessoa);
+		listar();
+	}
+	
+	public static void remover(Long id) {
+		Pessoa p = Pessoa.findById(id);
+		p.delete();
+		listar();
+	}
+	
+	public static void listar() {
+		List<Pessoa> pessoas = Pessoa.findAll();
+		render(pessoas);
 	}
 
+	
+	
 }
