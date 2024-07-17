@@ -19,12 +19,14 @@ public class Pessoas extends Controller {
 		pessoa.nome = pessoa.nome.toUpperCase();
 		pessoa.email = pessoa.email.toLowerCase();
 		pessoa.save();
+		flash.success("Cadastrado com sucesso!");
 		listar();
 	}
 	
 	public static void remover(Long id) {
 		Pessoa p = Pessoa.findById(id);
 		p.delete();
+		flash.success("Removido com sucesso!");
 		listar();
 	}
 	
