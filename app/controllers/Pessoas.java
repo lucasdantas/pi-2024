@@ -16,10 +16,14 @@ public class Pessoas extends Controller {
 	}
 	
 	public static void salvar(Pessoa pessoa) {
+		String mensagem = "Cadastrado com sucesso!";
+		if (pessoa.id != null) {
+			mensagem = "Editado com sucesso!";
+		}
 		pessoa.nome = pessoa.nome.toUpperCase();
 		pessoa.email = pessoa.email.toLowerCase();
 		pessoa.save();
-		flash.success("Cadastrado com sucesso!");
+		flash.success(mensagem);
 		listar(null);
 	}
 	
@@ -39,6 +43,11 @@ public class Pessoas extends Controller {
 					"%" + termo.toLowerCase() + "%").fetch();
 		}
 		render(pessoas, termo);
+	}
+	
+	public static void editar(Long id) {
+		Pessoa p = Pessoa.findById(id);
+		renderTemplate("Pessoas/form.html", p);
 	}
 
 	

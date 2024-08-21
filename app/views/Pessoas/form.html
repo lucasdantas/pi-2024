@@ -1,18 +1,26 @@
 #{extends 'main.html' /}
-#{set title:'Formulário de Pessoa!!!' /}
+
+#{if p}
+	#{set title:'Edição de Pessoa!!!' /}
+#{/if}
+#{else}
+	#{set title:'Cadastro de Pessoa!!!' /}
+#{/else}
 
 <p>Preencha os dados da pessoa</p>
 
 <form action="@{Pessoas.salvar}">
 
+	<input type="hidden" name="pessoa.id" value="${p?.id}" />
+
 	<div class="mb-3">
 		<label class="form-label">Nome:</label>
-		<input type="text" class="form-control" name="pessoa.nome" />
+		<input type="text" class="form-control" name="pessoa.nome" value="${p?.nome}" />
 	</div>
 	
 	<div class="mb-3">
 		<label class="form-label">Email:</label>
-		<input type="text" class="form-control" name="pessoa.email" />
+		<input type="text" class="form-control" name="pessoa.email" value="${p?.email}" />
 	</div>
 	
 	<div class="mb-3">
