@@ -1,6 +1,17 @@
 #{extends 'main.html' /}
 #{set title:'Listagem de Pessoas' /}
 
+<form action="@{Pessoas.listar}">
+	<div class="row">
+		<div class="col-6">
+			<input type="text" class="form-control" name="termo" value="${termo}" />
+		</div>
+		<div class="col-6">
+			<input type="submit" class="btn btn-primary" value="Pesquisar" />
+		</div>
+	</div>
+</form>
+
 <p>Pessoas cadastradas</p>
 
 <table class="table table-hover">
