@@ -17,14 +17,18 @@ public class Pessoa extends Model {
 	public String nome;
 	public String email;
 
-	// @Enumerated(EnumType.STRING)
-	// public Status status;
+	@Enumerated(EnumType.STRING)
+	public Status status;
 	
 	@Temporal(TemporalType.DATE)
 	public Date dataNascimento;
 
 	@Transient
 	public Long idade;
+	
+	public Pessoa() {
+		this.status = Status.ATIVO;
+	}
 	
 	public Long getIdade() {
 		Date d1 = this.dataNascimento;
