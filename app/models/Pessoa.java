@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -25,6 +26,9 @@ public class Pessoa extends Model {
 
 	@Transient
 	public Long idade;
+
+	@ManyToOne
+	public Departamento departamento;
 	
 	public Pessoa() {
 		this.status = Status.ATIVO;
@@ -39,5 +43,6 @@ public class Pessoa extends Model {
 		
 		return this.idade;
 	}
+	
 }
 
