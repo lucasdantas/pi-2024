@@ -10,9 +10,13 @@ public class Departamento extends Model {
 	public String nome;
 	public int ramal;
 	
+	
+	
+	
+	
 	@Override
 	public String toString() {
-		return nome + " (" + ramal + ")";
+		return nome + " (Ramal: " + ramal + ")";
 	}
 
 }

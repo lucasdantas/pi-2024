@@ -32,7 +32,10 @@
 		<label class="form-label">Selecione o departamento:</label>
 		<select class="form-select" name="pessoa.departamento.id">
 			#{list items:departamentos, as:'d'}
-		  		<option value="${d.id}">${d}</option>
+		  		<option value="${d.id}"
+		  			${d.id == p.departamento.id ? 'selected' : ''}
+		  			>${d}
+		  		</option>
 		  	#{/list}
 		</select>
 	</div>

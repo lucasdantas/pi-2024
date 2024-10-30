@@ -21,7 +21,7 @@ public class Inicializador extends Job {
 			d2.save();
 			
 			Departamento d3 = new Departamento();
-			d3.nome = "Almoxerifado";
+			d3.nome = "Almoxarifado";
 			d3.ramal = 300;
 			d3.save();
 		}

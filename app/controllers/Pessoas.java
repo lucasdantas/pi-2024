@@ -51,7 +51,8 @@ public class Pessoas extends Controller {
 	
 	public static void editar(Long id) {
 		Pessoa p = Pessoa.findById(id);
-		renderTemplate("Pessoas/form.html", p);
+		List<Departamento> departamentos = Departamento.findAll();
+		renderTemplate("Pessoas/form.html", p, departamentos);
 	}
 
 	
