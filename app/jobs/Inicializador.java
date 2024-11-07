@@ -1,6 +1,7 @@
 package jobs;
 
 import models.Departamento;
+import models.Pessoa;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 
@@ -24,6 +25,16 @@ public class Inicializador extends Job {
 			d3.nome = "Almoxarifado";
 			d3.ramal = 300;
 			d3.save();
+			
+			Pessoa p1 = new Pessoa();
+			p1.nome = "Maria Joaquina";
+			p1.departamento = d2;
+			p1.save();
+			
+			Pessoa p2 = new Pessoa();
+			p2.nome = "Cirilo";
+			p2.departamento = d1;
+			p2.save();
 		}
 	}
 

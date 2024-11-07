@@ -1,0 +1,30 @@
+#{extends 'main.html' /}
+#{set title:'Listagem de Projetos' /}
+
+<p>Projetos cadastrados</p>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Data de início</th>
+			<th>Data de fim</th>
+			<th>Ações</th>
+		</tr>
+	</thead>
+		#{list items:projetos, as:'p'}
+			<tr>
+				<td>${p.nome}</td>
+				<td>${p.inicio}</td>
+				<td>${p.fim}</td>
+				<td>
+					<a href="@{Projetos.formMembro(p.id)}">Adicionar Membro</a>
+				</td>
+			</tr>
+		#{/list}
+	<tbody>
+	
+	</tbody>
+</table>
+
+<a class="btn btn-primary" href="@{Projetos.form}">Novo Projeto</a>

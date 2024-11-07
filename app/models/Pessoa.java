@@ -44,5 +44,10 @@ public class Pessoa extends Model {
 		return this.idade;
 	}
 	
+	@Override
+	public String toString() {
+		return nome;
+	}
+	
 }
 
