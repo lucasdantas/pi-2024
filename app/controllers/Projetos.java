@@ -33,16 +33,37 @@ public class Projetos extends Controller {
 		render(projeto, pessoas);
 	}
 	
-	public static void adicionar(Long idProjeto, Long idPessoa) {
+	public static void adicionarMembro(Long idProjeto, Long idPessoa) {
 		Projeto projeto = Projeto.findById(idProjeto);
 		Pessoa pessoa = Pessoa.findById(idPessoa);
 		
 		if (projeto.membros == null) {
 			projeto.membros = new ArrayList<>();
 		}
-		projeto.membros.add(pessoa);
-		projeto.save();
+		
+		if (projeto.membros.contains(pessoa)) {
+			flash.error("Esta pessoa já pertence ao projeto."); 
+		} else {
+			projeto.membros.add(pessoa);
+			projeto.save();
+			flash.success("Membro adicionado com sucesso.");			
+		}
+		
 		formMembro(idProjeto);
 	}
 	
+	public static void removerMembro(Long idProjeto, Long idPessoa) {
+		Projeto projeto = Projeto.findById(idProjeto);
+		Pessoa pessoa = Pessoa.findById(idPessoa);
+		
+		if (projeto.membros == null) {
+			flash.success("O projeto não possui membros cadastrados.");
+		} else {
+			projeto.membros.remove(pessoa);	
+			projeto.save();
+			flash.success("Membro removido com sucesso.");
+		}
+		
+		formMembro(idProjeto);
+	}
 }
