@@ -17,6 +17,10 @@
 		      <img src="@{'/public/images/favicon.png'}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
 		      Bootstrap
 		    </a>
+		    #{if session['usuarioLogado']}
+		    	<a>${session['usuarioLogado']}</a> | 
+		    	<a href="@{Logins.sair}">Logout</a>
+		    #{/if}
 		  </div>
 		</nav>
     	<div class="container-fluid"> 

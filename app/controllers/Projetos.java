@@ -7,8 +7,11 @@ import models.Departamento;
 import models.Pessoa;
 import models.Projeto;
 import models.Status;
+import play.mvc.Before;
 import play.mvc.Controller;
+import play.mvc.With;
 
+@With(Seguranca.class)
 public class Projetos extends Controller {
 	
 	public static void form() {

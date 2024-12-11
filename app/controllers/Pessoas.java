@@ -5,10 +5,13 @@ import java.util.List;
 import models.Departamento;
 import models.Pessoa;
 import models.Status;
+import play.mvc.Before;
 import play.mvc.Controller;
+import play.mvc.With;
 
+@With(Seguranca.class)
 public class Pessoas extends Controller {
-	
+
 	public static void form() {
 		List<Departamento> departamentos = Departamento.findAll();
 		render(departamentos);

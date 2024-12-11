@@ -29,10 +29,14 @@ public class Inicializador extends Job {
 			Pessoa p1 = new Pessoa();
 			p1.nome = "Maria Joaquina";
 			p1.departamento = d2;
+			p1.login = "maria";
+			p1.senha = "1234";
 			p1.save();
 			
 			Pessoa p2 = new Pessoa();
 			p2.nome = "Cirilo";
+			p2.login = "cirilo";
+			p2.senha = "1234";
 			p2.departamento = d1;
 			p2.save();
 		}
