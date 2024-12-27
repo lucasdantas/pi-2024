@@ -16,11 +16,12 @@ public class Pessoas extends Controller {
 		List<Departamento> departamentos = Departamento.findAll();
 		render(departamentos);
 	}
-	
-	public static void detalhar(Pessoa pessoa) {
+
+	public static void detalhar(Long id) {
+		Pessoa pessoa = Pessoa.findById(id);
 		render(pessoa);
 	}
-	
+
 	public static void salvar(Pessoa pessoa) {
 		String mensagem = "Cadastrado com sucesso!";
 		if (pessoa.id != null) {
@@ -32,7 +33,7 @@ public class Pessoas extends Controller {
 		flash.success(mensagem);
 		listar(null);
 	}
-	
+
 	public static void remover(Long id) {
 		Pessoa p = Pessoa.findById(id);
 		p.status = Status.INATIVO;
@@ -40,7 +41,7 @@ public class Pessoas extends Controller {
 		flash.success("Removido com sucesso!");
 		listar(null);
 	}
-	
+
 	public static void listar(String termo) {
 		List<Pessoa> pessoas = null;
 		if (termo == null) {
@@ -51,13 +52,18 @@ public class Pessoas extends Controller {
 		}
 		render(pessoas, termo);
 	}
-	
+
 	public static void editar(Long id) {
 		Pessoa p = Pessoa.findById(id);
 		List<Departamento> departamentos = Departamento.findAll();
 		renderTemplate("Pessoas/form.html", p, departamentos);
 	}
 
-	
-	
+	public static void verFoto(Long id) {
+		Pessoa p = Pessoa.findById(id);
+		notFoundIfNull(p);
+		response.setContentTypeIfNotSet(p.foto.type());
+		renderBinary(p.foto.get());
+	}
+
 }

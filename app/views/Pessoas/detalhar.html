@@ -2,8 +2,12 @@
 #{set title:'Detalhamento de Pessoa' /}
 
 <h1>Detalhes de pessoa:</h1>
+
+<img src="@{Pessoas.verFoto(pessoa.id)}" class="img-thumbnail" />
+
 <p>${pessoa.nome}</p>
 <p>${pessoa.email}</p>
 
 <a href="@{Pessoas.form}">Cadastrar Novo</a> |
+<a href="@{Pessoas.editar(pessoa.id)}">Editar</a> |
 <a href="@{Pessoas.listar}">Voltar para a listagem</a>
